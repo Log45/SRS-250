@@ -1,5 +1,9 @@
 import numpy as np
 
+# print(np.empty((2, 3)))
+# print(np.zeros((2, 3)))
+# print(np.random.randn(2))
+# print(np.random.random((2, 3))) out=row, in=col
 
 def Linear(X: np.ndarray, input_features: int, output_features: int, bias: bool=True) -> np.ndarray:
     """"""
@@ -7,7 +11,7 @@ def Linear(X: np.ndarray, input_features: int, output_features: int, bias: bool=
     if bias:
         bs = np.empty(output_features)
     else:
-        bs = np.zeros(output_features)
+        bs = np.random.random(output_features)
     return np.dot(weights, X) + bs
 
 def Sigmoid(X: np.ndarray) -> np.ndarray:
@@ -41,3 +45,5 @@ class ClassificationModel():
         X = Sigmoid(X)
         X = Linear(X, self.hidden_units, self.out_features)
         return Sigmoid(X)
+    
+    # TODO: Create an update_weights function
