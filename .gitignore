@@ -1,0 +1,9 @@
+# PyTorch Models
+*.pt
+
+# Environments
+.venv/
+.conda/
+
+# Rust output files
+target/
