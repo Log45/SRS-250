@@ -17,6 +17,9 @@ def Linear(X: np.ndarray, input_features: int, output_features: int, bias: bool=
 def Sigmoid(X: np.ndarray) -> np.ndarray:
     return 1 / (1+np.exp(-X))
 
+def ReLU():
+    return
+
 class LinearRegressionModel():
     def __init__(self) -> None:
         """"""
@@ -42,8 +45,7 @@ class ClassificationModel():
     def forward(self, X: np.ndarray) -> np.ndarray:
         """"""
         X = Linear(X, self.in_features, self.hidden_units)
-        X = Sigmoid(X)
-        X = Linear(X, self.hidden_units, self.out_features)
-        return Sigmoid(X)
+        X = ReLU(X)
+        return Linear(X, self.hidden_units, self.out_features)
     
     # TODO: Create an update_weights function

@@ -4,6 +4,7 @@
 # Environments
 .venv/
 .conda/
+__pycache__/
 
 # Rust output files
 target/
