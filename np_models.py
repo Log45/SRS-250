@@ -17,7 +17,7 @@ def Linear(X: np.ndarray, input_features: int, output_features: int, bias: bool=
 def Sigmoid(X: np.ndarray) -> np.ndarray:
     return 1 / (1+np.exp(-X))
 
-def ReLU():
+def ReLU(X: np.ndarray):
     return
 
 class LinearRegressionModel():

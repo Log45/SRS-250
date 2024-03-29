@@ -2,6 +2,16 @@ import torch
 from torch import nn
 import numpy as np
 
+class Perceptron(nn.Module):
+    """It's a signle layer Perceptron"""
+    def __init__(self, input_features: int = 3, output_features: int = 1) -> None:
+        super().__init__()
+        self.layer = nn.Linear(input_features, output_features)
+    
+    def forward(self, X):
+        return torch.sigmoid(self.layer(X))
+    
+
 class LinearRegressionModel(nn.Module):
     """Simple Neural Network using PyTorch for Linear Regression problems"""
     def __init__(self):
@@ -32,4 +42,4 @@ class ClassificationModel(nn.Module):
         )
 
     def forward(self, X: torch.Tensor) -> torch.Tensor:
-        return self.model_stack(X)
+        return torch.sigmoid(self.model_stack(X))
