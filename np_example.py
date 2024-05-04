@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 TRAIN_SET_SIZE = 50
 PI = math.pi
 N = 5
-epsilon = 0.05
+epsilon = 0.01
 epoch = 50000
 
 c = np.ndarray(N)
@@ -22,7 +22,7 @@ def sigmoid(x: float) -> float:
 def f_theta(x: float) -> float:
     result = b
     for i in range(N):
-        result += V[i] * sigmoid(c[i] + W[i] *x)
+        result += V[i] * sigmoid(c[i] + W[i] * x)
     return result
 
 def train(x: float, y: float):
@@ -58,14 +58,14 @@ def main():
     total = time.perf_counter() - start
     print("Training took: ", total, " seconds.")
 
-    x = np.empty(0) # input
-    y1 = np.empty(0) # true labels
-    y2 = np.empty(0) # preds
+    x = np.empty(1000) # input
+    y1 = np.empty(1000) # true labels
+    y2 = np.empty(1000) # preds
 
     for i in range(1000):
-        np.append(x, i * 2 * PI / 1000)
-        np.append(y1, math.sin(i * 2 * PI / 1000))
-        np.append(y2, f_theta(i * 2 * PI / 1000))
+        x[i] =  i * 2 * PI / 1000
+        y1[i] = math.sin(i * 2 * PI / 1000)
+        y2[i] = f_theta(i * 2 * PI / 1000)
     
     plt.figure(figsize=(10, 7))
     plt.scatter(x, y1, c="b", s=4, label="True Data")
